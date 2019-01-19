@@ -7,7 +7,7 @@ import MyApp from './App/containers/App/index.js';
 class App extends Component {
   render() {
     return (
-      <div>
+      <div className="app-container">
         <BrowserRouter>
           <MyApp />
         </BrowserRouter>

@@ -1,5 +1,5 @@
 import React from 'react';
-import './style.css';
+import './style.scss';
 import Logo from '../../../images/logo.png';
 
 export default class LogIn extends React.Component {
@@ -18,7 +18,11 @@ export default class LogIn extends React.Component {
     }
     handleSubmit(event) {
         event.preventDefault();
-        this.checkValidUserOrNot(this.state.userName);
+        if(this.state.userName) {
+            this.checkValidUserOrNot(this.state.userName);
+        } else {
+            this.setState({ errorUserName: "Please provide username..." });
+        }
     }
     checkValidUserOrNot(userName) {
         fetch(`https://api.github.com/users/${userName}`)
@@ -42,16 +46,16 @@ export default class LogIn extends React.Component {
             <div className="login-container">
                 <div className="header">
                     <div className="logo-container">
-                        <img src={Logo} alt="Git Hub" />
+                        <img className="img-logo" src={Logo} alt="Git Hub" />
                     </div>
-                    <div>Sign in to GitHub</div>
                 </div>
                 <div className="container">
-                    <form onSubmit={this.handleSubmit}>
+                    <div className="title">Sign in to GitHub</div>
+                    <form className="form-body" onSubmit={this.handleSubmit}>
                         <div className="input-label">Username or email address</div>
                         <input className="input-field" name="username" onChange={this.handleChange}/>
-                        {this.state.errorUserName}
-                        <button classname="submit-button" type="submit">Sign In</button>
+                        <div className="error-msg">{this.state.errorUserName}</div>
+                        <button className="submit-button" type="submit">Sign In</button>
                     </form>
                 </div>
             </div>
