@@ -1,4 +1,5 @@
 import React from 'react';
+import './style.css';
 import Logo from '../../../images/logo.png';
 
 export default class LogIn extends React.Component {
@@ -38,19 +39,19 @@ export default class LogIn extends React.Component {
     }
     render() {
         return (
-            <div>
-                <div>
-                    <div>
+            <div className="login-container">
+                <div className="header">
+                    <div className="logo-container">
                         <img src={Logo} alt="Git Hub" />
                     </div>
                     <div>Sign in to GitHub</div>
                 </div>
-                <div>
+                <div className="container">
                     <form onSubmit={this.handleSubmit}>
-                        <div>Username or email address</div>
-                        <input name="username" onChange={this.handleChange}/>
+                        <div className="input-label">Username or email address</div>
+                        <input className="input-field" name="username" onChange={this.handleChange}/>
                         {this.state.errorUserName}
-                        <button type="submit">Sign In</button>
+                        <button classname="submit-button" type="submit">Sign In</button>
                     </form>
                 </div>
             </div>
