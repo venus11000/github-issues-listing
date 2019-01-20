@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import { BrowserRouter } from 'react-router-dom'
 // import logo from './logo.svg';
 import './App.css';
 import MyApp from './App/containers/App/index.js';
@@ -6,8 +7,10 @@ import MyApp from './App/containers/App/index.js';
 class App extends Component {
   render() {
     return (
-      <div>
-        <MyApp />
+      <div className="app-container">
+        <BrowserRouter>
+          <MyApp />
+        </BrowserRouter>
         {/* <header className="App-header">
           <img src={logo} className="App-logo" alt="logo" />
           <p>
