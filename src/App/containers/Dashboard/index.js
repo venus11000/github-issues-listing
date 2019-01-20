@@ -3,6 +3,7 @@ import { withRouter } from "react-router";
 import SwipeableViews from 'react-swipeable-views';
 import { Grid, AppBar, Tabs, Tab, Typography } from '@material-ui/core';
 import './style.scss';
+import Repositories from '../Repositories';
 
 function TabContainer({ children, dir }) {
     return (
@@ -81,7 +82,7 @@ class Dashboard extends React.Component {
                                     onChangeIndex={this.handleTabChangeIndex}
                                 >
                                     <TabContainer>Overview</TabContainer>
-                                    <TabContainer>Repositories</TabContainer>
+                                    <TabContainer><Repositories user={this.state.user}/></TabContainer>
                                     <TabContainer>Stars</TabContainer>
                                     <TabContainer>Followers</TabContainer>
                                     <TabContainer>Following</TabContainer>
