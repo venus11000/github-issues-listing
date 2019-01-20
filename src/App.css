@@ -4,3 +4,6 @@
 .error-msg {
     color: red;
 }
+.cursor-pointer {
+    cursor: pointer;
+}

@@ -10,7 +10,7 @@ class Repositories extends React.Component {
         }
     }
     componentDidMount() {
-        this.props.user.repos_url && fetch(this.props.user.repos_url).then(response => response.json()).then(data => {
+        this.props.user && fetch(this.props.user.repos_url).then(response => response.json()).then(data => {
             console.log(data);
             this.setState({ repositories: data });
         })

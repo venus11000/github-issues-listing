@@ -21,7 +21,7 @@ class Repository extends React.Component {
     render() {
         const repository = {...this.state.repository}
     return <div className="repository-list">
-        <div onClick={() => this.handleClick(repository)}><h3>{repository.name}</h3></div>
+        <div onClick={() => this.handleClick(repository)}><h3 className="cursor-pointer">{repository.name}</h3></div>
         <div>
             <div>{repository.language}</div>
             <div>Updated {repository.updated_at} ago</div>
