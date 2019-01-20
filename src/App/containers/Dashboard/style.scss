@@ -1,0 +1,28 @@
+.profile-container {
+    padding: 10px;
+    padding-left: 30px;
+    padding-top: 30px;
+    .profile-card {
+        .profile-image {
+            width: 100%;
+        }
+        .card-desc {
+            border-bottom: 1px solid #e1e4e8;
+            border-bottom-left-radius: 3px;
+            border-bottom-right-radius: 3px;
+            border-left: 1px solid #e1e4e8;
+            border-right: 1px solid #e1e4e8;
+            .card-content {
+                color: #586069!important;
+                line-height: 1.25!important;
+                font-size: 12px;
+                padding: 10px 10px;
+                margin: 0px;
+            }
+            .card-content:hover {
+                color: #0366d6!important;
+                cursor: pointer;
+            }
+        }
+    }
+}

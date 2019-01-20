@@ -1,8 +1,9 @@
 import React from 'react';
+import { withRouter } from "react-router";
 import './style.scss';
 import Logo from '../../../images/logo.png';
 
-export default class LogIn extends React.Component {
+class LogIn extends React.Component {
     constructor(props) {
         super(props);
         this.state = {
@@ -12,6 +13,18 @@ export default class LogIn extends React.Component {
         this.handleChange = this.handleChange.bind(this);
         this.handleSubmit = this.handleSubmit.bind(this);
         this.checkValidUserOrNot = this.checkValidUserOrNot.bind(this);
+    }
+    componentDidMount() {
+        if(localStorage.getItem("USER")) {
+            let user = this.getLoggedInUserDetail();
+            this.redirectToDashboard(user.login);
+        }
+    }
+    getLoggedInUserDetail() {
+        return JSON.parse(localStorage.getItem("USER"));
+    }
+    redirectToDashboard(userName) {
+        this.props.history.push(`/${userName}`);
     }
     handleChange(event) {
         this.setState({ userName: event.target.value });
@@ -35,6 +48,8 @@ export default class LogIn extends React.Component {
             if(data) {
                 this.setState({ errorUserName: "" });
                 localStorage.setItem("USER", JSON.stringify(data));
+                const user = this.getLoggedInUserDetail();
+                this.redirectToDashboard(user.login);
             }  else {
                 this.setState({ errorUserName: "Invalid Username...!" });
                 return null;
@@ -62,3 +77,5 @@ export default class LogIn extends React.Component {
         );
     }
 }
+
+export default withRouter(LogIn)
